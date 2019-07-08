@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour {
 
 	private float timeBtwAttack;
 	public float startTimeBtwAttack;
+
 	public Transform attackPos;
 	public float attackRange;
 	public LayerMask whatIsEnemies;
@@ -22,6 +23,7 @@ public class PlayerAttack : MonoBehaviour {
 	
 	
 	void Update () {
+
 		if(timeBtwAttack <= 0){
 			if(Input.GetKey(KeyCode.Space)){
 				StartCoroutine( cameraShake.Shake(camShakeDuration, camShakeMagnitude) );
@@ -36,6 +38,8 @@ public class PlayerAttack : MonoBehaviour {
 		}else{
 			timeBtwAttack -= Time.deltaTime;
 		}
+
+
 	}
 
 	void OnDrawGizmosSelected(){

@@ -10,8 +10,8 @@ public class Enemy : MonoBehaviour {
 	private Animator anim;
 
 	void Start () {
-		anim = GetComponent<Animator>();
-		anim.SetBool("isRunning", true);
+		//anim = GetComponent<Animator>();
+		//anim.SetBool("isRunning", true);
 	}
 	
 	void Update () {
