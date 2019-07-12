@@ -6,6 +6,9 @@ public class Projectile : MonoBehaviour {
 
 	public float speed;
 	public float lifeTime;
+	public float distance;
+	public int damage;
+	public LayerMask whatIsSolid;
 
 	private Transform enemy;
 	private Vector2 target;
@@ -17,6 +20,15 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void Update () {
+
+		RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
+		if(hitInfo.collider != null){
+			if(hitInfo.collider.CompareTag("Enemy")){
+				hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+			}
+			DestroyProjectile();
+		}
+
 		transform.Translate(Vector2.up * speed * Time.deltaTime);
 
 		if(transform.position.x == target.x && transform.position.y == target.y){

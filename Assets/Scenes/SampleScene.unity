@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: -90
   startTimeBtwShots: 0
-  projectile: {fileID: 1400630239388788, guid: 2c355e37ab375844fa6866c32b6aa4a3, type: 2}
+  projectile: {fileID: 1671894257340026, guid: 617beb8854b485947bdc2230343df86d, type: 2}
   firePoint: {fileID: 1644472817}
 --- !u!1 &266648099
 GameObject:
