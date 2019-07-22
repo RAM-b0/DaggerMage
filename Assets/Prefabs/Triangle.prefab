@@ -90,6 +90,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  lifeTime: 3
+  distance: 1
+  damage: 1
+  whatIsSolid:
+    serializedVersion: 2
+    m_Bits: 1280
 --- !u!212 &212056212156366750
 SpriteRenderer:
   m_ObjectHideFlags: 1
