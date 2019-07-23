@@ -73,7 +73,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.006704569, y: 3.609035}
@@ -202,6 +202,7 @@ MonoBehaviour:
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 1536
+  targetsTag: Enemy
 --- !u!212 &212842565327641146
 SpriteRenderer:
   m_ObjectHideFlags: 1

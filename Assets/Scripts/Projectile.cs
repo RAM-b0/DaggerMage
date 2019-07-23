@@ -10,32 +10,57 @@ public class Projectile : MonoBehaviour {
 	public int damage;
 	public LayerMask whatIsSolid;
 
-	private Transform enemy;
-	private Vector2 target;
+	private Transform target;
+	public string targetsTag;
+	private Vector2 destination;
 	
 	void Start () {
 		Invoke("DestroyProjectile", lifeTime);
-		enemy = GameObject.FindGameObjectWithTag("Enemy").transform; 
-		target = new Vector2(enemy.position.x, enemy.position.y);
+		target = GameObject.FindGameObjectWithTag(targetsTag).transform; 
+		destination = new Vector2(target.position.x, target.position.y);
 	}
 
 	void Update () {
 
-		RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
-		if(hitInfo.collider != null){
-			if(hitInfo.collider.CompareTag("Enemy")){
+		if(targetsTag == "Enemy"){
+			RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
+			transform.Translate(Vector2.up * speed * Time.deltaTime);
+
+			if(hitInfo.collider != null){
+			if(hitInfo.collider.CompareTag(targetsTag)){
 				hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
 			}
 			speed = 0;
 			DestroyProjectile();
 		}
+		}else{
+			RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, destination, distance, whatIsSolid);
+			transform.position = Vector2.MoveTowards(transform.position, destination, speed * Time.deltaTime);
 
-		transform.Translate(Vector2.up * speed * Time.deltaTime);
+			if(hitInfo.collider != null){
+			if(hitInfo.collider.CompareTag(targetsTag)){
+				Debug.Log("Player was hit");
+				//hitInfo.collider.GameObject.GetComponent<Enemy>().TakeDamage(damage);
+			}
+			speed = 0;
+			DestroyProjectile();
+		}
+		}
+		
+		
 
-		if(transform.position.x == target.x && transform.position.y == target.y){
-			Destroy(gameObject);
+		
+		if(transform.position.x == destination.x && transform.position.y == destination.y){
+			DestroyProjectile();
 		}
 	}
+	
+	// void OnTriggerEnter2D(Collider2D other){
+	// 	if(other.CompareTag("Player")){
+	// 		DestroyProjectile();
+	// 	}
+	// }
+
 	void DestroyProjectile() {
 		//Instantiate(destroyEffect, transform.position, Quaternion.identity);
 		Destroy(gameObject);
