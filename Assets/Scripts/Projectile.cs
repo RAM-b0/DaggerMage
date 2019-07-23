@@ -39,7 +39,8 @@ public class Projectile : MonoBehaviour {
 
 			if(hitInfo.collider != null){
 			if(hitInfo.collider.CompareTag(targetsTag)){
-				hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+				Debug.Log("Player was hit");
+				//hitInfo.collider.GameObject.GetComponent<Enemy>().TakeDamage(damage);
 			}
 			speed = 0;
 			DestroyProjectile();
