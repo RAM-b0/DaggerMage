@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Environment
+  - Key
+  - Coin
+  - GoldStack
   layers:
   - Default
   - TransparentFX
