@@ -32,7 +32,7 @@ public class PickUp : MonoBehaviour
     void PickedUpKey(Collider2D player)
     {
         //Sound plays
-        FindObjectOfType<AudioManager>().Play("pickUpSound");
+        //FindObjectOfType<AudioManager>().Play("pickUpSound");
 
         //Adding to inventory
         PlayersInventory keys = player.GetComponent<PlayersInventory>();
