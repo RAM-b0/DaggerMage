@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
 	private float moveInputH;
 	private float moveInputV;
 
+
 	void Start () {
 
 	}
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void TakeDamage(int damage){
+		GameObject.Find("ControlCameraShake").GetComponent<SimpleCameraShakeInCinemachine>().Shake();
 		health -= damage;
 		Debug.Log("Player took damage");
 	}
