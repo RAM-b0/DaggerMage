@@ -899,22 +899,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: theme
-    clip: {fileID: 0}
-    volume: 0.5
+  - name: Theme
+    clip: {fileID: 8300000, guid: 211a60fc379c3234696eaefadf830000, type: 3}
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Throw
+    clip: {fileID: 8300000, guid: ac1121663f6db68458da0aeb65d1ed36, type: 3}
+    volume: 0.6
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Shot
+    clip: {fileID: 8300000, guid: 867f1e77f2218434f9f5a045cb3f85d1, type: 3}
+    volume: 0.4
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!4 &246139734
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: -90
-  startTimeBtwShots: 0
+  startTimeBtwShots: 0.3
   projectile: {fileID: 1671894257340026, guid: 617beb8854b485947bdc2230343df86d, type: 2}
   firePoint: {fileID: 1644472817}
 --- !u!1 &266648099
@@ -1084,6 +1084,7 @@ MonoBehaviour:
   startTimeBtwShots: 1
   projectile: {fileID: 1326645706914570, guid: 661cfccb8422ab34d87d9b65e4af289f, type: 2}
   player: {fileID: 0}
+  bloodStain: {fileID: 1961851244567594, guid: 121475e262b4e8248bdced101c93ba5e, type: 2}
 --- !u!212 &266648102
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1178,6 +1179,7 @@ GameObject:
   - component: {fileID: 438189959}
   - component: {fileID: 438189961}
   - component: {fileID: 438189963}
+  - component: {fileID: 438189962}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1255,7 +1257,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b7b1df6e93754ed49af28d0b243bbfa3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a7d0b7a6f3bf164458f72b546c569199, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1327,6 +1329,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  animator: {fileID: 438189962}
+  bloodStain: {fileID: 1961851244567594, guid: 121475e262b4e8248bdced101c93ba5e, type: 2}
+--- !u!95 &438189962
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 438189954}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd33b063bbc048f468aafe5adce99300, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &438189963
 MonoBehaviour:
   m_ObjectHideFlags: 0

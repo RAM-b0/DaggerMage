@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour {
 	public Transform player;
 
 	private Animator anim;
+	public GameObject bloodStain;
+
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -23,6 +25,7 @@ public class Enemy : MonoBehaviour {
 	
 	void Update () {
 
+		//Move
 		if(Vector2.Distance(transform.position, player.position) > stoppingDistance){
 			transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
@@ -34,11 +37,13 @@ public class Enemy : MonoBehaviour {
 		}
 
 		if(health <= 0){
-			Destroy(gameObject);
+			DestroyEnemy();
 		}
 
+		//Shot
 		if(timeBtwShots <= 0){
 				Instantiate(projectile, transform.position, Quaternion.identity);
+				FindObjectOfType<AudioManager>().Play("Shot");
 				timeBtwShots = startTimeBtwShots;
 		}else{
 			timeBtwShots -= Time.deltaTime;
@@ -51,6 +56,11 @@ public class Enemy : MonoBehaviour {
 	public void TakeDamage(int damage){
 		health -= damage;
 		Debug.Log("Enemy took damage");
+	}
+
+	void DestroyEnemy() {
+		Instantiate(bloodStain, transform.position, Quaternion.identity);
+		Destroy(gameObject);
 	}
 
 }

@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour {
 	public int damage;
 	public LayerMask whatIsSolid;
 
+	public GameObject cloud;
+
 	private Transform target;
 	public string targetsTag;
 	private Vector2 destination;
@@ -62,7 +64,7 @@ public class Projectile : MonoBehaviour {
 	// }
 
 	void DestroyProjectile() {
-		//Instantiate(destroyEffect, transform.position, Quaternion.identity);
+		Instantiate(cloud, transform.position, Quaternion.identity);
 		Destroy(gameObject);
 	}
 }

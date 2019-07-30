@@ -51,7 +51,7 @@ public class SimpleCameraShakeInCinemachine : MonoBehaviour {
     }
 
     public void Shake(){
-         // TODO: Replace with your trigger
+        
         //if (Input.GetKey(KeyCode.S))
         //{
             ShakeElapsedTime = ShakeDuration;

@@ -96,6 +96,7 @@ MonoBehaviour:
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 1280
+  cloud: {fileID: 1100735236740812, guid: f3adb910fa10bbb448a82811f913420c, type: 2}
   targetsTag: Player
 --- !u!212 &212056212156366750
 SpriteRenderer:

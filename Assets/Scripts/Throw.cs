@@ -18,6 +18,7 @@ public class Throw : MonoBehaviour {
 		if(timeBtwShots <= 0){
 			if(Input.GetMouseButtonDown(0)){
 				Instantiate(projectile, firePoint.position, transform.rotation);
+				FindObjectOfType<AudioManager>().Play("Throw");
 				timeBtwShots = startTimeBtwShots;
 			}
 		}else{
