@@ -57,9 +57,7 @@ public class Enemy : MonoBehaviour {
 			timeBtwShots -= Time.deltaTime;
 		}
 
-
 	}
-
 	
 	public void TakeDamage(int damage){
 		FindObjectOfType<AudioManager>().Play("SlimeHit");

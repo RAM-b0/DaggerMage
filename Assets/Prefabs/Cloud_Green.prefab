@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4739071061581284}
   - component: {fileID: 212048253065265168}
-  - component: {fileID: 114746952149636778}
+  - component: {fileID: 114722475230067656}
   m_Layer: 0
   m_Name: Cloud_Green
   m_TagString: Untagged
@@ -41,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114746952149636778
+--- !u!114 &114722475230067656
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,10 +49,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763839831607096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e30bda38b5332a4d9809b43f262b786, type: 3}
+  m_Script: {fileID: 11500000, guid: 846ddd7adfadb704e928bbeb782bc6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 0.05
+  alphaLevel: 0.5
+  fadeSpeed: 0.05
 --- !u!212 &212048253065265168
 SpriteRenderer:
   m_ObjectHideFlags: 1

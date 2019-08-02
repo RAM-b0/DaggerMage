@@ -32,7 +32,7 @@ public class PickUp : MonoBehaviour
     void PickedUpKey(Collider2D player)
     {
         //Sound plays
-        //FindObjectOfType<AudioManager>().Play("pickUpSound");
+        FindObjectOfType<AudioManager>().Play("PickUp");
 
         //Adding to inventory
         PlayersInventory keys = player.GetComponent<PlayersInventory>();
@@ -44,7 +44,7 @@ public class PickUp : MonoBehaviour
     void PickedUpCoin(Collider2D player)
     {
         //Sound plays
-        FindObjectOfType<AudioManager>().Play("pickUpSound");
+        FindObjectOfType<AudioManager>().Play("PickUp");
 
         //Adding to inventory
         PlayersInventory gold = player.GetComponent<PlayersInventory>();
@@ -56,7 +56,7 @@ public class PickUp : MonoBehaviour
     void PickedUpGoldStack(Collider2D player)
     {
         //Sound plays
-        FindObjectOfType<AudioManager>().Play("pickUpSound");
+        FindObjectOfType<AudioManager>().Play("PickUp");
 
         //Adding to inventory
         PlayersInventory gold = player.GetComponent<PlayersInventory>();

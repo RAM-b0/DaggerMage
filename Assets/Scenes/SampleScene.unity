@@ -917,8 +917,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
+  - name: OpenDoor
+    clip: {fileID: 8300000, guid: d10ff1b22d15a954d9ca6a1244bd2ae8, type: 3}
     volume: 0.4
     pitch: 1
     loop: 0
@@ -937,19 +937,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: SlimeShot
     clip: {fileID: 8300000, guid: 3744fa14a81d97d46b31f3f6859218da, type: 3}
-    volume: 0.5
+    volume: 0.35
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SlimeHit
     clip: {fileID: 8300000, guid: 3880932b41f352a4eaa8adac9d055dfa, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SlimeDeath
     clip: {fileID: 8300000, guid: a4e112c852cf68c45b1e866151731286, type: 3}
-    volume: 0.5
+    volume: 0.55
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -966,7 +966,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 246139732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.90314513, y: 1.2959125, z: -1.0996094}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -997,7 +997,7 @@ Transform:
   m_GameObject: {fileID: 252848057}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.09, y: 0.09, z: 1}
   m_Children:
   - {fileID: 1644472817}
   m_Father: {fileID: 438189958}
@@ -1658,6 +1658,14 @@ Prefab:
     - target: {fileID: 4463850950542378, guid: d97892a7845193a43afb38427ba72a49, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425568450899558, guid: d97892a7845193a43afb38427ba72a49, type: 2}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425568450899558, guid: d97892a7845193a43afb38427ba72a49, type: 2}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97892a7845193a43afb38427ba72a49, type: 2}
