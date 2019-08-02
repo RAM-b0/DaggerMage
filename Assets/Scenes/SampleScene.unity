@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 60219136}
   - component: {fileID: 60219137}
   m_Layer: 0
-  m_Name: key-png-32739
+  m_Name: key
   m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 60c4c50661c14ee499d79997a1291f46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4152b843635a1c94f8ea693b2243ae55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -228,11 +228,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 60219133}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9543803, y: 3.24397, z: 0}
+  m_LocalPosition: {x: -2.57, y: 1.68, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &60219136
 CircleCollider2D:
@@ -901,18 +901,60 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: 211a60fc379c3234696eaefadf830000, type: 3}
-    volume: 0.4
+    volume: 0.35
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Throw
     clip: {fileID: 8300000, guid: ac1121663f6db68458da0aeb65d1ed36, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WallHit
+    clip: {fileID: 8300000, guid: fc75ecaef2908b84abe2b7c7f377a1ce, type: 3}
     volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Shot
-    clip: {fileID: 8300000, guid: 867f1e77f2218434f9f5a045cb3f85d1, type: 3}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 592d066dfb79fb2429078f745dd2594b, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHit
+    clip: {fileID: 8300000, guid: 603e5890d8ee4474fb428d80c79d4cc8, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SlimeShot
+    clip: {fileID: 8300000, guid: 3744fa14a81d97d46b31f3f6859218da, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SlimeHit
+    clip: {fileID: 8300000, guid: 3880932b41f352a4eaa8adac9d055dfa, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SlimeDeath
+    clip: {fileID: 8300000, guid: a4e112c852cf68c45b1e866151731286, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
     volume: 0.4
     pitch: 1
     loop: 0
@@ -1034,6 +1076,7 @@ GameObject:
   - component: {fileID: 266648101}
   - component: {fileID: 266648100}
   - component: {fileID: 266648104}
+  - component: {fileID: 266648105}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -1082,9 +1125,10 @@ MonoBehaviour:
   stoppingDistance: 5
   retreatDistance: 2
   startTimeBtwShots: 1
-  projectile: {fileID: 1326645706914570, guid: 661cfccb8422ab34d87d9b65e4af289f, type: 2}
+  projectile: {fileID: 1720589700030652, guid: 661cfccb8422ab34d87d9b65e4af289f, type: 2}
   player: {fileID: 0}
-  bloodStain: {fileID: 1961851244567594, guid: 121475e262b4e8248bdced101c93ba5e, type: 2}
+  animator: {fileID: 266648105}
+  bloodStain: {fileID: 1085979526085106, guid: 1d0819d77bfab6b4e88423bf4ab4c092, type: 2}
 --- !u!212 &266648102
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1120,7 +1164,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ba15d6fd142ff1949a4fbbe2da73cf25, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 429e65ff1f85c5c4ebd62b7ca89e238e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1164,6 +1208,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &266648105
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266648099}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b5a0edd89b6299140b8647e2257a7bd9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &438189954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,7 +1392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   animator: {fileID: 438189962}
-  bloodStain: {fileID: 1961851244567594, guid: 121475e262b4e8248bdced101c93ba5e, type: 2}
+  bloodStain: {fileID: 1971757535510778, guid: 6d2f0641e9d24bf4ebc5b655e17ce64c, type: 2}
 --- !u!95 &438189962
 Animator:
   serializedVersion: 3
@@ -1558,118 +1620,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1100753473
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1100753477}
-  - component: {fileID: 1100753476}
-  - component: {fileID: 1100753475}
-  - component: {fileID: 1100753474}
-  m_Layer: 0
-  m_Name: Circle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!58 &1100753474
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100753473}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!50 &1100753475
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100753473}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!212 &1100753476
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100753473}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b7b1df6e93754ed49af28d0b243bbfa3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1100753477
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100753473}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: -0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1123675773
 Prefab:
   m_ObjectHideFlags: 0
@@ -1707,7 +1657,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4463850950542378, guid: d97892a7845193a43afb38427ba72a49, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97892a7845193a43afb38427ba72a49, type: 2}

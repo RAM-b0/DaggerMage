@@ -31,6 +31,8 @@ public class Projectile : MonoBehaviour {
 			if(hitInfo.collider != null){
 			if(hitInfo.collider.CompareTag(targetsTag)){
 				hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+			}else{
+				FindObjectOfType<AudioManager>().Play("WallHit");
 			}
 			speed = 0;
 			DestroyProjectile();
@@ -41,7 +43,6 @@ public class Projectile : MonoBehaviour {
 
 			if(hitInfo.collider != null){
 			if(hitInfo.collider.CompareTag(targetsTag)){
-				Debug.Log("Player was hit");
 				hitInfo.collider.GetComponent<Player>().TakeDamage(damage);
 			}
 			speed = 0;

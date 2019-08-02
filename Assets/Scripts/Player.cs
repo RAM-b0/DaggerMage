@@ -24,6 +24,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void TakeDamage(int damage){
+		FindObjectOfType<AudioManager>().Play("PlayerHit");
 		GameObject.Find("ControlCameraShake").GetComponent<SimpleCameraShakeInCinemachine>().Shake();
 		health -= damage;
 		Debug.Log("Player took damage");
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour {
 
 	void DestroyPlayer() {
 		Instantiate(bloodStain, transform.position, Quaternion.identity);
-		FindObjectOfType<AudioManager>().Play("PlayersDeath");
+		FindObjectOfType<AudioManager>().Play("PlayerDeath");
 		Destroy(gameObject);
 		Debug.Log("Game Over");
 	}

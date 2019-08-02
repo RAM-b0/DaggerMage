@@ -13,13 +13,16 @@ public class Enemy : MonoBehaviour {
 	public GameObject projectile;
 	public Transform player;
 
-	private Animator anim;
+	public Animator animator;
 	public GameObject bloodStain;
+	private Rigidbody2D rb;
+	private Vector2 direction;
 
 
 	void Start () {
+		rb = this.GetComponent<Rigidbody2D>();
+		Debug.Log(rb);
 		player = GameObject.FindGameObjectWithTag("Player").transform;
-		
 		timeBtwShots = startTimeBtwShots;
 	}
 	
@@ -36,6 +39,11 @@ public class Enemy : MonoBehaviour {
 			transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
 		}
 
+		//animation
+		direction = (player.transform.position - transform.position).normalized;
+		animator.SetFloat("Horizontal", direction.x );
+		animator.SetFloat("Vertical", direction.y );
+
 		if(health <= 0){
 			DestroyEnemy();
 		}
@@ -43,7 +51,7 @@ public class Enemy : MonoBehaviour {
 		//Shot
 		if(timeBtwShots <= 0){
 				Instantiate(projectile, transform.position, Quaternion.identity);
-				FindObjectOfType<AudioManager>().Play("Shot");
+				FindObjectOfType<AudioManager>().Play("SlimeShot");
 				timeBtwShots = startTimeBtwShots;
 		}else{
 			timeBtwShots -= Time.deltaTime;
@@ -54,11 +62,13 @@ public class Enemy : MonoBehaviour {
 
 	
 	public void TakeDamage(int damage){
+		FindObjectOfType<AudioManager>().Play("SlimeHit");
 		health -= damage;
 		Debug.Log("Enemy took damage");
 	}
 
 	void DestroyEnemy() {
+		FindObjectOfType<AudioManager>().Play("SlimeDeath");
 		Instantiate(bloodStain, transform.position, Quaternion.identity);
 		Destroy(gameObject);
 	}
