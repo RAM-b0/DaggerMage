@@ -10,29 +10,14 @@ public class PickUp : MonoBehaviour
         //Checks if PLAYER collided
         if (other.CompareTag("Player"))
         {
-            PickedUp(other);
+            PickedUpKey(other);
         }
     }
-    void PickedUp(Collider2D player)
-    {
-        //Checks with what player collided
-        if (this.CompareTag("Key"))
-        {
-            PickedUpKey(player);
-        }
-        if (this.CompareTag("Coin"))
-        {
-            PickedUpCoin(player);
-        }
-        if (this.CompareTag("GoldStack"))
-        {
-            PickedUpGoldStack(player);
-        }
-    }
+
     void PickedUpKey(Collider2D player)
     {
         //Sound plays
-        FindObjectOfType<AudioManager>().Play("PickUp");
+        FindObjectOfType<AudioManager>().Play("KeyPickUp");
 
         //Adding to inventory
         PlayersInventory keys = player.GetComponent<PlayersInventory>();
@@ -41,28 +26,5 @@ public class PickUp : MonoBehaviour
         //Deleting object
         Destroy(gameObject);
     }
-    void PickedUpCoin(Collider2D player)
-    {
-        //Sound plays
-        FindObjectOfType<AudioManager>().Play("PickUp");
 
-        //Adding to inventory
-        PlayersInventory gold = player.GetComponent<PlayersInventory>();
-        gold.money++;
-
-        //Deleting object
-        Destroy(gameObject);
-    }
-    void PickedUpGoldStack(Collider2D player)
-    {
-        //Sound plays
-        FindObjectOfType<AudioManager>().Play("PickUp");
-
-        //Adding to inventory
-        PlayersInventory gold = player.GetComponent<PlayersInventory>();
-        gold.money+=10;
-
-        //Deleting object
-        Destroy(gameObject);
-    }
 }

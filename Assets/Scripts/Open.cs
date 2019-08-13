@@ -17,7 +17,7 @@ public class Open : MonoBehaviour
         if (player.GetComponent<PlayersInventory>().bronzeKeys > 0)
         {
             FindObjectOfType<AudioManager>().Play("OpenDoor");
-
+            GameObject.Find("Player").GetComponent<PlayersInventory>().bronzeKeys--;
             Destroy(gameObject);
         }
 

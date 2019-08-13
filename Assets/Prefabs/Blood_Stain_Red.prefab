@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4394089014344292}
   - component: {fileID: 212684397613671668}
+  - component: {fileID: 114080428543045582}
   m_Layer: 0
   m_Name: Blood_Stain_Red
   m_TagString: Untagged
@@ -40,6 +41,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114080428543045582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971757535510778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846ddd7adfadb704e928bbeb782bc6ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaLevel: 1
+  fadeSpeed: 0.003
+  delay: 0
 --- !u!212 &212684397613671668
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -43,8 +43,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 3328031873
+    locked: 0
   - name: Blood
     uniqueID: 1386277057
+    locked: 0
+  - name: Background
+    uniqueID: 2553224987
     locked: 0
   - name: Default
     uniqueID: 0

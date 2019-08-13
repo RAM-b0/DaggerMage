@@ -4,23 +4,31 @@ using UnityEngine;
 
 public class FadeOut : MonoBehaviour {
 
-	public float alphaLevel = 0.5f;
+	public float alphaLevel = 1f;
 	public float fadeSpeed = 0.05f;
+	public float delay = 0f;
 
 	void Start () {
 		
 	}
 	
 	void Update () {
-		alphaLevel -= fadeSpeed;
+		if(delay <= 0 ){
 
-		Color tmp = GetComponent<SpriteRenderer>().color;
-		tmp.a = alphaLevel;
- 		GetComponent<SpriteRenderer>().color = tmp;
+			alphaLevel -= fadeSpeed;
 
-		if(tmp.a == 1){
-			Destroy();
+			Color tmp = GetComponent<SpriteRenderer>().color;
+			tmp.a = alphaLevel;
+ 			GetComponent<SpriteRenderer>().color = tmp;
+
+			if(tmp.a <= 0){
+				Destroy();
+			}
+
+		}else {
+			delay -= Time.deltaTime;
 		}
+		
 	}
 	void Destroy() {
 		Destroy(gameObject);
